@@ -3,8 +3,9 @@
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": [
+		"Development",
 		"Productivity",
-		"Marketing"
+		"Marketing & Content"
 	],
 	"resources": {
 		"credentialDocumentation": [
