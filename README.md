@@ -1,46 +1,49 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-pdforge
 
-# n8n-nodes-starter
+This is an n8n community node. It lets you use [Pdforge](https://pdforge.com) in your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+**Pdforge is the future of PDF generation API**.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+You can build your PDF reusable templates using our no-code PDF builder and our AI Agents and generate modern PDF reports at scale without relying on your development team with all our integrations with no-code platoforms, like N8N, Zapier, Make, Bubble.io or using our Rest API.
 
-## Prerequisites
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-You need the following installed on your development machine:
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)
+[Compatibility](#compatibility)  
+[Usage](#usage)
+[Resources](#resources)
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 18. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  pnpm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+## Installation
 
-## Using this starter
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+## Operations
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `pnpm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `pnpm lint` to check for errors or `pnpm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+With pdforge you can create pdfs or images synchronously or asynchronously. Here are the operations you can use:
 
-## More information
+| Name               | Operation        | Description                                                                                                                  | Documentation Link                                                    |
+| ------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Generate Pdf Sync  | `sync`           | Creates a PDF file with JSON data and your template.                                                                         | [Link](https://docs.pdforge.com/pdfs/synchronous-request)             |
+| Generate Pdf Async | `async`          | Creates a PDF file asynchronously with JSON data and your template. The API returns immediately, and will retry for 3 times. | [Link](https://docs.pdforge.com/pdfs/asynchronous-request)            |
+| Convert to Image   | `convertToImage` | Generate a PNG image with JSON data and your template.                                                                       | [Link](https://docs.pdforge.com/images/how-render-png-instead-of-pdf) |
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+## Credentials
 
-## License
+You only need a pdforge API Key to integrate to start generating pdfs. You can get it using our [web portal](https://app.pdforge.com/auth/sign-up).
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+- [pdforge Auth Documentation](https://docs.pdforge.com/getting-started/authentication)
+
+## Compatibility
+
+This package was developed & tested with n8n > 1.75.2
+
+## Usage
+
+Please check out the [Pdforge API Reference](https://docs.pdforge.com/) for more information on how to use the integration.
+
+## Resources
+
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
+- [Pdforge API Reference](https://docs.pdforge.com/reference/api)
