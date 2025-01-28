@@ -98,7 +98,8 @@ export class Pdforge implements INodeType {
 
 		for (let i = 0; i < length; i++) {
 			const templateId = this.getNodeParameter('templateId', i) as string;
-			const data = this.getNodeParameter('data', i);
+			const variables = this.getNodeParameter('variables', i);
+			const data = typeof variables === 'string' ? JSON.parse(variables) : variables;
 			const webhook = operation === 'async' ? this.getNodeParameter('webhook', i) : undefined;
 			const convertToImage = resource === 'image' ? true : false;
 			const body: IDataObject = {

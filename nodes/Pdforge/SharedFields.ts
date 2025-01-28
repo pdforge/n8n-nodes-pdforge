@@ -27,7 +27,7 @@ export const sharedFields: INodeProperties[] = [
 	},
 	{
 		displayName: 'Variables',
-		name: 'data',
+		name: 'variables',
 		type: 'json',
 		default: '{}',
 		description:
