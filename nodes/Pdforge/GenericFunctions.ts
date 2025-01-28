@@ -34,12 +34,14 @@ export async function pdforgeApiRequest(
 		json: true,
 	};
 
-	if (!Object.keys(body as IDataObject).length) {
-		delete options.form;
+	if (!Object.keys(body).length) {
+		delete options.body;
 	}
+
 	if (!Object.keys(query).length) {
 		delete options.qs;
 	}
+
 	options.headers = Object.assign({}, options.headers, headers);
 	try {
 		return await this.helpers.request(options);

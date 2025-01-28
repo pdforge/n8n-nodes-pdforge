@@ -7,10 +7,11 @@ import {
 	IExecuteFunctions,
 	IDataObject,
 } from 'n8n-workflow';
+
 import { pdforgeApiRequest } from './GenericFunctions';
-import { pdfFields, pdfOperations } from './PdfDescription';
 import { imageOperations } from './ImageDescription';
-import { imageFields } from './ImageDescription';
+import { pdfOperations } from './PdfDescription';
+import { sharedFields } from './SharedFields';
 
 export class Pdforge implements INodeType {
 	description: INodeTypeDescription = {
@@ -57,15 +58,10 @@ export class Pdforge implements INodeType {
 				],
 				default: 'pdf',
 			},
+			...pdfOperations,
+			...imageOperations,
+			...sharedFields,
 		],
-
-		// PDF
-		...pdfOperations,
-		...pdfFields,
-
-		// Image
-		...imageOperations,
-		...imageFields,
 	};
 
 	methods = {
@@ -74,7 +70,7 @@ export class Pdforge implements INodeType {
 			// select them easily
 			async getTemplates(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const returnData: INodePropertyOptions[] = [];
-				const templates = await pdforgeApiRequest.call(this, 'GET', 'integrations', 'templates');
+				const templates = await pdforgeApiRequest.call(this, 'GET', 'integration', 'templates');
 				for (const template of templates) {
 					returnData.push({
 						name: template.displayName,
