@@ -23,11 +23,12 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 With pdforge you can create pdfs or images synchronously or asynchronously. Here are the operations you can use:
 
-| Name               | Operation        | Description                                                                                                                  | Documentation Link                                                    |
-| ------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Generate Pdf Sync  | `sync`           | Creates a PDF file with JSON data and your template.                                                                         | [Link](https://docs.pdforge.com/pdfs/synchronous-request)             |
-| Generate Pdf Async | `async`          | Creates a PDF file asynchronously with JSON data and your template. The API returns immediately, and will retry for 3 times. | [Link](https://docs.pdforge.com/pdfs/asynchronous-request)            |
-| Convert to Image   | `convertToImage` | Generate a PNG image with JSON data and your template.                                                                       | [Link](https://docs.pdforge.com/images/how-render-png-instead-of-pdf) |
+| Name                 | Operation     | Description                                                                                                                  | Documentation Link                                                    |
+| -------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Generate Pdf Sync    | `pdf:sync`    | Creates a PDF file with JSON data and your template.                                                                         | [Link](https://docs.pdforge.com/pdfs/synchronous-request)             |
+| Generate Pdf Async   | `pdf:async`   | Creates a PDF file asynchronously with JSON data and your template. The API returns immediately, and will retry for 3 times. | [Link](https://docs.pdforge.com/pdfs/asynchronous-request)            |
+| Generate Image Sync  | `image:sync`  | Creates a PNG file with JSON data and your template.                                                                         | [Link](https://docs.pdforge.com/images/how-render-png-instead-of-pdf) |
+| Generate Image Async | `image:async` | Creates a PNG file asynchronously with JSON data and your template. The API returns immediately, and will retry for 3 times. | [Link](https://docs.pdforge.com/images/how-render-png-instead-of-pdf) |
 
 ## Credentials
 
