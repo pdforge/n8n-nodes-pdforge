@@ -8,7 +8,7 @@ export const pdfOperations: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['image'],
+				resource: ['pdf'],
 			},
 		},
 		options: [
@@ -31,21 +31,28 @@ export const pdfOperations: INodeProperties[] = [
 
 export const pdfFields: INodeProperties[] = [
 	{
-		displayName: 'Template ID',
+		displayName: 'Template Name or ID',
 		name: 'templateId',
 		type: 'options',
 		typeOptions: {
 			loadOptionsMethod: 'getTemplates',
 		},
+		displayOptions: {
+			show: {
+				resource: ['pdf'],
+			},
+		},
 		required: true,
 		default: '',
-		description: 'The template ID you want to use. Choose from the list, or specify an ID.',
+		description:
+			'The template ID you want to use. Choose from the list, or specify an ID. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 	},
 	{
 		displayName: 'Webhook URL',
 		name: 'webhook',
 		displayOptions: {
 			show: {
+				resource: ['pdf'],
 				operation: ['async'],
 			},
 		},
@@ -57,9 +64,14 @@ export const pdfFields: INodeProperties[] = [
 		displayName: 'Variables',
 		name: 'data',
 		type: 'json',
+		displayOptions: {
+			show: {
+				resource: ['pdf'],
+			},
+		},
 		default: {},
 		placeholder: 'Replace your variables here Variable',
 		description:
-			'To see the variables in your template, access pdforge interface and click on the template you want to use.',
+			'To see the variables in your template, access pdforge interface and click on the template you want to use',
 	},
 ];

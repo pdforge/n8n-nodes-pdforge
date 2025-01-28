@@ -13,7 +13,7 @@ import { pdfFields, pdfOperations } from './PdfDescription';
 export class Pdforge implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Pdforge',
-		name: 'Pdforge',
+		name: 'pdforge',
 		icon: 'file:pdforge.svg',
 		group: ['transform'],
 		version: 1,

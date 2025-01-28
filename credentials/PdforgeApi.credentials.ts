@@ -1,4 +1,4 @@
-import { IAuthenticateGeneric, ICredentialType, INodeProperties } from 'n8n-workflow';
+import { ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class PdforgeApi implements ICredentialType {
 	name = 'pdforgeApi';
@@ -10,16 +10,8 @@ export class PdforgeApi implements ICredentialType {
 			displayName: 'API Key',
 			name: 'apiKey',
 			type: 'string',
+			typeOptions: { password: true },
 			default: '',
 		},
 	];
-
-	authenticate: IAuthenticateGeneric = {
-		type: 'generic',
-		properties: {
-			headers: {
-				Authorization: `Bearer {{$credentials.apiKey}}`,
-			},
-		},
-	};
 }
