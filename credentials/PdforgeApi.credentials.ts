@@ -1,7 +1,7 @@
 import { IAuthenticateGeneric, ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class PdforgeApi implements ICredentialType {
-	name = 'PdforgeApi';
+	name = 'pdforgeApi';
 	displayName = 'Pdforge API';
 	documentationUrl = 'https://docs.pdforge.com/getting-started/authentication';
 
