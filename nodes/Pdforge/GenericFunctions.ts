@@ -30,7 +30,7 @@ export async function pdforgeApiRequest(
 		method,
 		body,
 		qs: query,
-		uri: uri || `https://api.pdforge.com/v1/${endpoint}/${operation}`,
+		uri: uri || `https://api.pdforge.com/v1${endpoint}/${operation}`,
 		json: true,
 	};
 

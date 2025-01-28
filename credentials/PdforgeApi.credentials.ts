@@ -1,4 +1,4 @@
-import { ICredentialType, INodeProperties } from 'n8n-workflow';
+import { ICredentialTestRequest, ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class PdforgeApi implements ICredentialType {
 	name = 'pdforgeApi';
@@ -14,4 +14,11 @@ export class PdforgeApi implements ICredentialType {
 			default: '',
 		},
 	];
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: 'https://api.pdforge.com/v1',
+			url: '/integration/templates',
+		},
+	};
 }

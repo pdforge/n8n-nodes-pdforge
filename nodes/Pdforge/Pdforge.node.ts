@@ -70,7 +70,13 @@ export class Pdforge implements INodeType {
 			// select them easily
 			async getTemplates(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const returnData: INodePropertyOptions[] = [];
-				const templates = await pdforgeApiRequest.call(this, 'GET', 'integration', 'templates');
+				const { templates } = await pdforgeApiRequest.call(
+					this,
+					'GET',
+					'/integration',
+					'templates',
+				);
+
 				for (const template of templates) {
 					returnData.push({
 						name: template.displayName,
@@ -93,7 +99,7 @@ export class Pdforge implements INodeType {
 		for (let i = 0; i < length; i++) {
 			const templateId = this.getNodeParameter('templateId', i) as string;
 			const data = this.getNodeParameter('data', i);
-			const webhook = this.getNodeParameter('webhook', i) || undefined;
+			const webhook = operation === 'async' ? this.getNodeParameter('webhook', i) : undefined;
 			const convertToImage = resource === 'image' ? true : false;
 			const body: IDataObject = {
 				templateId,
@@ -102,7 +108,7 @@ export class Pdforge implements INodeType {
 				data,
 			};
 
-			responseData = await pdforgeApiRequest.call(this, 'POST', 'pdf', operation, body);
+			responseData = await pdforgeApiRequest.call(this, 'POST', '/pdf', operation, body);
 
 			returnData.push(responseData as INodeExecutionData);
 		}
