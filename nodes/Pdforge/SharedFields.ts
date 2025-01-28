@@ -2,7 +2,7 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const sharedFields: INodeProperties[] = [
 	{
-		displayName: 'Template ID',
+		displayName: 'Template Name or ID',
 		name: 'templateId',
 		type: 'options',
 		typeOptions: {
@@ -30,7 +30,6 @@ export const sharedFields: INodeProperties[] = [
 		name: 'variables',
 		type: 'json',
 		default: '{}',
-		description:
-			'To see the variables in your template, access pdforge interface and click on the template you want to use.',
+		description: 'To see the variables in your template, access pdforge interface and click on the template you want to use',
 	},
 ];
