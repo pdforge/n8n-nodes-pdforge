@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-pdforge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The future of PDF Generation API. Use our no-code PDF builder and our easy-to-use API to generate modern PDF reports at scale without relying on your development team.",
   "keywords": [
     "n8n-community-node-package",

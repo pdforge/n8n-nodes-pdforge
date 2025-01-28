@@ -9,6 +9,8 @@ import {
 } from 'n8n-workflow';
 import { pdforgeApiRequest } from './GenericFunctions';
 import { pdfFields, pdfOperations } from './PdfDescription';
+import { imageOperations } from './ImageDescription';
+import { imageFields } from './ImageDescription';
 
 export class Pdforge implements INodeType {
 	description: INodeTypeDescription = {
@@ -60,6 +62,10 @@ export class Pdforge implements INodeType {
 		// PDF
 		...pdfOperations,
 		...pdfFields,
+
+		// Image
+		...imageOperations,
+		...imageFields,
 	};
 
 	methods = {
