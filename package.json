@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-pdforge",
-  "version": "1.0.0",
-  "description": "The future of PDF Generation API. Use our no-code PDF builder and our easy-to-use API to generate modern PDF reports at scale without relying on your development team.",
+  "version": "2.0.0",
+  "description": "Pdforge Automate PDF Generation in minutes using AI.Create custom PDF templates in seconds using our AI Agents, fine tune the design with our no-code builder and automate the PDF delivery with our native pdforge node inside n8n. No code or design experience needed.",
   "keywords": [
     "n8n-community-node-package",
     "pdforge",

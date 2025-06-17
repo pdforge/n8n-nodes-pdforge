@@ -45,7 +45,7 @@ export const htmlToPdfFields: INodeProperties[] = [
 			'The HTML string you want to convert to a PDF file. Send the whole &lt;html&gt; tag.',
 	},
 	{
-		displayName: 'PDF Parameters',
+		displayName: 'Print Parameters',
 		name: 'pdfParams',
 		displayOptions: {
 			show: {

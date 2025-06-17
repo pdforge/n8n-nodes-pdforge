@@ -108,16 +108,26 @@ export class Pdforge implements INodeType {
 
 		for (let i = 0; i < length; i++) {
 			//template fields
-			const templateId = this.getNodeParameter('templateId', i, undefined) as string;
-			const variables = this.getNodeParameter('variables', i, undefined);
-			const data = typeof variables === 'string' ? JSON.parse(variables) : variables;
+			const templateId =
+				resource !== 'html-to-pdf' && (this.getNodeParameter('templateId', i, undefined) as string);
+
+			const variables =
+				resource !== 'html-to-pdf' && this.getNodeParameter('variables', i, undefined);
+			const data =
+				resource !== 'html-to-pdf' && typeof variables === 'string'
+					? JSON.parse(variables)
+					: variables;
 
 			// html to pdf fields
-			const html = this.getNodeParameter('html', i, undefined) as string;
-			const pdfParams = this.getNodeParameter('pdfParams', i, undefined);
+			const html =
+				resource === 'html-to-pdf' && (this.getNodeParameter('html', i, undefined) as string);
+			const pdfParams =
+				resource === 'html-to-pdf' && this.getNodeParameter('pdfParams', i, undefined);
 
 			// shared fields
-			const webhook = this.getNodeParameter('webhook', i, undefined);
+			const webhook =
+				operation === 'async' ? this.getNodeParameter('webhook', i, undefined) : undefined;
+
 			const s3_bucket = this.getNodeParameter('s3_bucket', i, undefined);
 			const s3_key = this.getNodeParameter('s3_key', i, undefined);
 			const convertToImage = resource === 'image' ? true : false;
