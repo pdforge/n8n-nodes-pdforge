@@ -8,11 +8,13 @@ import {
 	IDataObject,
 } from 'n8n-workflow';
 
-import { pdforgeApiRequest } from './GenericFunctions';
-import { imageOperations } from './ImageDescription';
-import { pdfOperations } from './PdfDescription';
-import { sharedFields } from './SharedFields';
+import { htmlToPdfFields, htmlToPdfOperations } from './descriptions/HtmlToPdfDescription';
+import { imageOperations } from './descriptions/ImageDescription';
+import { templateFields } from './descriptions/TemplateFields';
+import { pdfOperations } from './descriptions/PdfDescription';
+import { sharedFields } from './descriptions/SharedFields';
 
+import { pdforgeApiRequest } from './GenericFunctions';
 export class Pdforge implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Pdforge',
@@ -55,11 +57,19 @@ export class Pdforge implements INodeType {
 						name: 'Generate Image',
 						value: 'image',
 					},
+					{
+						name: 'Convert HTML to PDF',
+						value: 'html-to-pdf',
+					},
 				],
 				default: 'pdf',
 			},
 			...pdfOperations,
 			...imageOperations,
+			...htmlToPdfOperations,
+
+			...templateFields,
+			...htmlToPdfFields,
 			...sharedFields,
 		],
 	};
