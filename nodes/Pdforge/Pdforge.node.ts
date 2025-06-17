@@ -107,13 +107,14 @@ export class Pdforge implements INodeType {
 		const resource = this.getNodeParameter('resource', 0);
 		const operation = this.getNodeParameter('operation', 0);
 
-		for (let i = 0; i < length; i++) {
+		for (let itemIndex = 0; itemIndex < length; itemIndex++) {
 			//template fields
 			const templateId =
-				resource !== 'html-to-pdf' && (this.getNodeParameter('templateId', i, undefined) as string);
+				resource !== 'html-to-pdf' &&
+				(this.getNodeParameter('templateId', itemIndex, undefined) as string);
 
 			const variables =
-				resource !== 'html-to-pdf' && this.getNodeParameter('variables', i, undefined);
+				resource !== 'html-to-pdf' && this.getNodeParameter('variables', itemIndex, undefined);
 			const data =
 				resource !== 'html-to-pdf' && typeof variables === 'string'
 					? JSON.parse(variables)
@@ -121,16 +122,20 @@ export class Pdforge implements INodeType {
 
 			// html to pdf fields
 			const html =
-				resource === 'html-to-pdf' && (this.getNodeParameter('html', i, undefined) as string);
+				resource === 'html-to-pdf' &&
+				(this.getNodeParameter('html', itemIndex, undefined) as string);
 			const pdfParams =
-				resource === 'html-to-pdf' && this.getNodeParameter('pdfParams', i, undefined);
+				resource === 'html-to-pdf' && this.getNodeParameter('pdfParams', itemIndex, undefined);
 
 			// shared fields
 			const webhook =
-				operation === 'async' ? this.getNodeParameter('webhook', i, undefined) : undefined;
+				operation === 'async' ? this.getNodeParameter('webhook', itemIndex, undefined) : undefined;
 
-			const s3_bucket = this.getNodeParameter('s3_bucket', i, undefined);
-			const s3_key = this.getNodeParameter('s3_key', i, undefined);
+			const { s3_bucket, s3_key } = this.getNodeParameter('options', itemIndex, {}) as {
+				s3_bucket: string;
+				s3_key: string;
+			};
+
 			const convertToImage = resource === 'image' ? true : false;
 
 			const body: IDataObject = {
