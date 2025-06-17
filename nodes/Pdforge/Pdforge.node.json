@@ -1,12 +1,8 @@
 {
 	"node": "n8n-nodes-base.Pdforge",
-	"nodeVersion": "1.0",
-	"codexVersion": "1.0",
-	"categories": [
-		"Development",
-		"Productivity",
-		"Marketing & Content"
-	],
+	"nodeVersion": "2.0",
+	"codexVersion": "2.0",
+	"categories": ["Development", "Productivity", "Marketing & Content"],
 	"resources": {
 		"credentialDocumentation": [
 			{

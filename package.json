@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-pdforge",
-  "version": "1.0.0",
-  "description": "The future of PDF Generation API. Use our no-code PDF builder and our easy-to-use API to generate modern PDF reports at scale without relying on your development team.",
+  "version": "2.0.0",
+  "description": "Pdforge Automate PDF Generation in minutes using AI.Create custom PDF templates in seconds using our AI Agents, fine tune the design with our no-code builder and automate the PDF delivery with our native pdforge node inside n8n. No code or design experience needed.",
   "keywords": [
     "n8n-community-node-package",
     "pdforge",
@@ -21,19 +21,16 @@
     "url": "https://github.com/pdforge/n8n-nodes-pdforge.git"
   },
   "engines": {
-    "node": ">=18.10",
-    "pnpm": ">=9.1"
+    "node": ">=20.15"
   },
-  "packageManager": "pnpm@9.1.4",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "build": "tsc && gulp build:icons",
+    "build": "npx rimraf dist && tsc && gulp build:icons",
     "dev": "tsc --watch",
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "files": [
     "dist"
@@ -48,13 +45,12 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "7.15.0",
-    "eslint": "8.56.0",
-    "eslint-plugin-n8n-nodes-base": "1.16.1",
-    "gulp": "4.0.2",
-    "n8n-workflow": "*",
-    "prettier": "3.3.2",
-    "typescript": "5.5.3"
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
