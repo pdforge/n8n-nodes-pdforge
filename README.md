@@ -40,7 +40,7 @@ You only need a pdforge API Key to integrate to start generating pdfs. You can g
 
 ## Compatibility
 
-This package was developed & tested with n8n > 1.75.2
+This package was developed & tested with n8n > 1.97.1
 
 ## Usage
 

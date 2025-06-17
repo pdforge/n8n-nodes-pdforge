@@ -55,7 +55,7 @@ export const htmlToPdfFields: INodeProperties[] = [
 		type: 'json',
 		default: '{}',
 		description:
-			'The parameters for the PDF file. You can find the available parameters on <a href="https://docs.pdforge.com/options/pdf-params"> this documentation</a>.',
+			'The parameters for printing the PDF file. You can find the available parameters on <a href="https://docs.pdforge.com/options/pdf-params"> this documentation</a>.',
 		placeholder: '{ "format": "A4", "width": "210mm", "height": "297mm" }',
 	},
 ];
