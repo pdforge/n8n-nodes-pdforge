@@ -16,7 +16,7 @@ export const templateFields: INodeProperties[] = [
 		required: true,
 		default: '',
 		description:
-			'The template ID you want to use. Choose from the list, or specify an ID. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
 	},
 	{
 		displayName: 'Variables',
