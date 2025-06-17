@@ -107,19 +107,31 @@ export class Pdforge implements INodeType {
 		const operation = this.getNodeParameter('operation', 0);
 
 		for (let i = 0; i < length; i++) {
+			//template fields
 			const templateId = this.getNodeParameter('templateId', i) as string;
 			const variables = this.getNodeParameter('variables', i);
 			const data = typeof variables === 'string' ? JSON.parse(variables) : variables;
+
+			// html to pdf fields
+			const html = this.getNodeParameter('html', i) as string;
+			const pdfParams = this.getNodeParameter('pdfParams', i);
+
+			// shared fields
 			const webhook = operation === 'async' ? this.getNodeParameter('webhook', i) : undefined;
 			const convertToImage = resource === 'image' ? true : false;
+
 			const body: IDataObject = {
 				templateId,
 				convertToImage,
+				html,
+				pdfParams,
 				webhook,
 				data,
 			};
 
-			responseData = await pdforgeApiRequest.call(this, 'POST', '/pdf', operation, body);
+			const endpoint = resource === 'html-to-pdf' ? '/html-to-pdf' : '/pdf';
+
+			responseData = await pdforgeApiRequest.call(this, 'POST', endpoint, operation, body);
 
 			returnData.push(responseData as INodeExecutionData);
 		}
