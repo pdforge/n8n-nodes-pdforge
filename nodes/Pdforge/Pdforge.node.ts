@@ -6,6 +6,7 @@ import {
 	INodeTypeDescription,
 	IExecuteFunctions,
 	IDataObject,
+	NodeConnectionType,
 } from 'n8n-workflow';
 
 import { htmlToPdfFields, htmlToPdfOperations } from './descriptions/HtmlToPdfDescription';
@@ -27,8 +28,8 @@ export class Pdforge implements INodeType {
 		defaults: {
 			name: 'Pdforge',
 		},
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [NodeConnectionType.Main],
+		outputs: [NodeConnectionType.Main],
 		credentials: [
 			{
 				name: 'pdforgeApi',

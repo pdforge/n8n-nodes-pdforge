@@ -14,6 +14,7 @@ Create custom PDF templates in seconds using our AI Agents, fine tune the design
 [Compatibility](#compatibility)  
 [Usage](#usage)
 [Resources](#resources)
+[Version history](#version-history)
 
 ## Installation
 
@@ -51,3 +52,10 @@ Please check out the [Pdforge API Reference](https://docs.pdforge.com/) for more
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 - [Pdforge API Reference](https://docs.pdforge.com/)
 - [Pdforge Knowledge Base](https://docs.pdforge.com/knowledge-base)
+
+## Version history
+
+| Version | Changes                                                                                |
+| ------- | -------------------------------------------------------------------------------------- |
+| 2.0.0   | Added support for HTML to PDF conversion operations and custom s3 bucket configuration |
+| 1.0.0   | Initial release with PDF and Image generation capabilities                             |
