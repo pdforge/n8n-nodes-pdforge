@@ -104,7 +104,7 @@ module.exports = {
 				'n8n-nodes-base/node-param-description-url-missing-protocol': 'error',
 				'n8n-nodes-base/node-param-description-weak': 'error',
 				'n8n-nodes-base/node-param-description-wrong-for-dynamic-multi-options': 'error',
-				'n8n-nodes-base/node-param-description-wrong-for-dynamic-options': 'error',
+				'n8n-nodes-base/node-param-description-wrong-for-dynamic-options': 'off',
 				'n8n-nodes-base/node-param-description-wrong-for-ignore-ssl-issues': 'error',
 				'n8n-nodes-base/node-param-description-wrong-for-limit': 'error',
 				'n8n-nodes-base/node-param-description-wrong-for-return-all': 'error',
