@@ -108,16 +108,18 @@ export class Pdforge implements INodeType {
 
 		for (let i = 0; i < length; i++) {
 			//template fields
-			const templateId = this.getNodeParameter('templateId', i) as string;
-			const variables = this.getNodeParameter('variables', i);
+			const templateId = this.getNodeParameter('templateId', i, undefined) as string;
+			const variables = this.getNodeParameter('variables', i, undefined);
 			const data = typeof variables === 'string' ? JSON.parse(variables) : variables;
 
 			// html to pdf fields
-			const html = this.getNodeParameter('html', i) as string;
-			const pdfParams = this.getNodeParameter('pdfParams', i);
+			const html = this.getNodeParameter('html', i, undefined) as string;
+			const pdfParams = this.getNodeParameter('pdfParams', i, undefined);
 
 			// shared fields
-			const webhook = operation === 'async' ? this.getNodeParameter('webhook', i) : undefined;
+			const webhook = this.getNodeParameter('webhook', i, undefined);
+			const s3_bucket = this.getNodeParameter('s3_bucket', i, undefined);
+			const s3_key = this.getNodeParameter('s3_key', i, undefined);
 			const convertToImage = resource === 'image' ? true : false;
 
 			const body: IDataObject = {
@@ -126,6 +128,8 @@ export class Pdforge implements INodeType {
 				html,
 				pdfParams,
 				webhook,
+				s3_bucket,
+				s3_key,
 				data,
 			};
 
